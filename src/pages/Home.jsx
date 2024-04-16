@@ -4,10 +4,11 @@ import { ProductContext } from "../context/ProductContext";
 import Product from "../components/Product";
 
 const Home = () => {
-  //get product from product context
-  const { products } = useContext(ProductContext);
-
-  //get only men's & women's clothing category
+  //get product from ProductContext
+ const { products } = useContext(ProductContext);
+ // console.log(products);
+  
+ //get only men's & women's clothing category
   const filteredProducts = products.filter((item) => {
     return (
       item.category === "men's clothing" || item.category === "women's clothing"
@@ -20,7 +21,7 @@ const Home = () => {
           {/* the grid size of the window changing sizes */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0">
             {filteredProducts.map((product) => {
-              return <Product product={productkey={product.id}/>;
+              return <Product product={product} key={product.id} />
               // <div
               //color box background for product <<<<<<<<<<<<<<<
               //       className="w-full h-[300px] bg-amber-200 mb-4"
@@ -29,7 +30,7 @@ const Home = () => {
               //       {product.title}
               //     </div>
               //   );
-            })}
+            )});
           </div>
         </div>
       </section>
