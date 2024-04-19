@@ -32,8 +32,18 @@ const Sidebar = () => {
       {/* </div> */}
       <div>
         {cart.map((item) => {
-        return <CartItem item={item} key={item.id} />;
-      })}
+          return <CartItem item={item} key={item.id} />;
+        })}
+      </div>
+      <div>
+        <div>
+          {/* total */}
+          <div>
+            <span>Total:</span>$ 1000
+          </div>
+          {/* clear cart icon */}
+          <div>clear cart</div>
+        </div>
       </div>
     </div>
   );
