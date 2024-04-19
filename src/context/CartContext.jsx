@@ -8,7 +8,7 @@ const CartProvider = ({ children }) => {
   //cart state
   const [cart, setCart] = useState([]);
   // item amount state
-  const [itemAmount, setItemAmount]
+  const [itemAmount, setItemAmount] = useState(0);
 
   //add to cart
   const addToCart = (product, id) => {
@@ -81,6 +81,7 @@ const CartProvider = ({ children }) => {
         clearCart,
         increaseAmount,
         decreaseAmount,
+        itemAmount
       }}
     >
       {children}
