@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import { IoLogoSteam } from "react-icons/io";
 
 // create context
 export const CartContext = createContext;
@@ -6,6 +7,8 @@ export const CartContext = createContext;
 const CartProvider = ({ children }) => {
   //cart state
   const [cart, setCart] = useState([]);
+  // item amount state
+  const [itemAmount, setItemAmount]
 
   //add to cart
   const addToCart = (product, id) => {
@@ -44,12 +47,41 @@ const CartProvider = ({ children }) => {
 
   //increase amount
   const increaseAmount = (id) => {
-    console.log("amount increased");
+    const cartItem = cart.find((item) => item.id === id);
+    addToCart(cartItem, id);
+  };
+
+  //decrease amount
+  const decreaseAmount = (id) => {
+    const cartItem = cart.find((item) => {
+      return item.id === id;
+    });
+    if (cartItem) {
+      const newCart = cart.map(item => {
+        if (item.id === id) {
+          return {...item, amount: cartItem.amount -1};
+        } else {
+          return item;
+        }
+      });
+      setCart(newCart);
+    } 
+
+      if (cartItem.amount < 2) {
+        removeFromCart(id);
+      }
   };
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart, increaseAmount }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        increaseAmount,
+        decreaseAmount,
+      }}
     >
       {children}
     </CartContext.Provider>
