@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 //import product context
 import { ProductContext } from "../context/ProductContext";
+//import components
 import Product from "../components/Product";
+import Hero from '../components/Hero';
 
 const Home = () => {
   //get product from ProductContext
@@ -16,6 +18,7 @@ const Home = () => {
   });
   return (
     <div>
+      <Hero />
       <section className="py-16">
         <div className="container mx-auto">
           {/* the grid size of the window changing sizes */}
