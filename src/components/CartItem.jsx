@@ -73,5 +73,6 @@ const CartItem = ({ item }) => {
     </div>
   );
 };
+// div
 
 export default CartItem;
