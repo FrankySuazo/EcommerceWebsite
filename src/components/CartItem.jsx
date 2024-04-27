@@ -73,6 +73,6 @@ const CartItem = ({ item }) => {
     </div>
   );
 };
-// div
+// div className='flex-1'
 //div 
 export default CartItem;
